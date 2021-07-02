@@ -43,20 +43,39 @@
 // console.log(yearsUntilRetirement(1980, "Bob"))
 
 // ==============================================================================================================
-function cutFruitPieces(fruit) {
-  return fruit * 4;
-}
-
-function fruitProcessor (apples, oranges) {
-
-  const applePieces = cutFruitPieces(apples);
-  const orangePieces = cutFruitPieces(oranges);
-
-  console.log(apples, oranges);
-  const juice = `Juice with ${apples} apples and ${oranges} oranges. This constitutes ${applePieces} apple slices and ${orangePieces} orange slices `;
-  return juice;
-}
-
-console.log(fruitProcessor(2,3))
+// function cutFruitPieces(fruit) {
+//   return fruit * 4;
+// }
+//
+// function fruitProcessor (apples, oranges) {
+//
+//   const orangePieces = cutFruitPieces(oranges);
+//   const applePieces = cutFruitPieces(apples);
+//
+//   console.log(apples, oranges);
+//   const juice = `Juice with ${apples} apples and ${oranges} oranges. This constitutes ${applePieces} apple slices and ${orangePieces} orange slices `;
+//   return juice;
+// }
+//
+// console.log(fruitProcessor(2,3))
 
 // ==============================================================================================================
+
+// CODING CHALLENGE
+
+
+calcAverage = (param1, param2, param3) => (param1 + param2 + param3) / 3
+
+
+const dolphinAve = calcAverage(85,54,41);
+const koalaAve = calcAverage(23, 34, 27);
+
+function checkWinner (dolphinAve, koalaAve) {
+  if (koalaAve >= 2 * dolphinAve) {
+    return `Koalas won (${koalaAve} vs ${dolphinAve})`
+  } else if (dolphinAve >= 2*koalaAve) {
+    return `dolphins won (${dolphinAve} vs ${koalaAve})`
+  } else return `Nobody won. (${dolphinAve} vs ${koalaAve}) `
+}
+
+console.log(checkWinner(dolphinAve, koalaAve));
