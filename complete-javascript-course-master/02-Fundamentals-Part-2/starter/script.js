@@ -4,6 +4,7 @@
 //
 // logger();
 
+// ==============================================================================================================
 // function fruitProcessor (apples, oranges) {
 //   console.log(apples, oranges);
 //   const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
@@ -14,27 +15,48 @@
 //
 // console.log(appleJuice);
 
+
+// ==============================================================================================================
 // Function expression
 
-const calAge2 = function (birthYear) {
-  return 2037 - birthYear
+// const calAge2 = function (birthYear) {
+//   return 2037 - birthYear
+// }
+//
+// // Arrow function
+//
+// const calcAge3 = birthYear => 2037 - birthYear;
+// const age3 = calcAge3(1991);
+//
+// // console.log(age3)
+//
+// // Case for more than 1 line of code & more than 1 parameter
+//
+// const yearsUntilRetirement  = (birthYear, firstName) => {
+//   const age = 2037 - birthYear;
+//   const retirement = 65 - age;
+//
+//   return `${firstName} retires in ${retirement} years`;
+// }
+//
+// console.log(yearsUntilRetirement(1991, "James"))
+// console.log(yearsUntilRetirement(1980, "Bob"))
+
+// ==============================================================================================================
+function cutFruitPieces(fruit) {
+  return fruit * 4;
 }
 
-// Arrow function
+function fruitProcessor (apples, oranges) {
 
-const calcAge3 = birthYear => 2037 - birthYear;
-const age3 = calcAge3(1991);
+  const applePieces = cutFruitPieces(apples);
+  const orangePieces = cutFruitPieces(oranges);
 
-// console.log(age3)
-
-// Case for more than 1 line of code & more than 1 parameter
-
-const yearsUntilRetirement  = (birthYear, firstName) => {
-  const age = 2037 - birthYear;
-  const retirement = 65 - age;
-
-  return `${firstName} retires in ${retirement} years`;
+  console.log(apples, oranges);
+  const juice = `Juice with ${apples} apples and ${oranges} oranges. This constitutes ${applePieces} apple slices and ${orangePieces} orange slices `;
+  return juice;
 }
 
-console.log(yearsUntilRetirement(1991, "James"))
-console.log(yearsUntilRetirement(1980, "Bob"))
+console.log(fruitProcessor(2,3))
+
+// ==============================================================================================================
