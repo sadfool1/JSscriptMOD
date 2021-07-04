@@ -147,3 +147,37 @@
 // console.log(total)
 
 // ==============================================================================================================
+
+// const james = {
+//   firstName: 'James',
+//   lastName: 'Morillo',
+//   birthYear: 1994,
+//   job: 'Unemployed',
+//   friends: ['Amelia', 'Shans', 'Jerrold']
+// };
+
+// console.log(james['firstName'])
+
+// console.log(james.lastName)
+
+// const nameKey = 'Name';
+// console.log(james['first'+ nameKey]);
+// console.log(james['last'+nameKey]);
+
+// const interestedIN = prompt('What do you want to know about James? Choose between firstName, lastName, age, job, and friends')
+
+
+// james.location = 'Singapore';
+// james['twitter'] = '@sadfool';
+// console.log(james)
+
+// if (james[interestedIN]) {
+//   console.log(james[interestedIN]);
+
+// } else {
+//   console.log('Wrong request!')
+
+// }
+
+
+// console.log(`${james.firstName} has ${james.friends.length}, and his best friend is called ${james.friends[1]}`)
