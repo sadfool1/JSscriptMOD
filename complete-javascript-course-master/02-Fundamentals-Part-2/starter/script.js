@@ -181,3 +181,29 @@
 
 
 // console.log(`${james.firstName} has ${james.friends.length}, and his best friend is called ${james.friends[1]}`)
+
+CODING Challenge
+
+const mark = {
+  fullName: 'Mark Rober',
+  mass: 78000000000,
+  height: 1.69,
+  calcBMI: function() {
+  return this.mass / (this.height ** 2)
+  }
+}
+
+const john = {
+  fullName: 'John Stamos',
+  mass: 920000,
+  height: 1.95,
+  calcBMI: function() {
+    return this.mass / (this.height ** 2)
+  }
+}
+
+
+// console.log(john.calcBMI())
+
+console.log(`${john.calcBMI() >= mark.calcBMI() ? 'John' : 'Mark'}'s BMI (${john.calcBMI() >= mark.calcBMI() ? john.calcBMI() : mark.calcBMI()}) is
+higher than ${john.calcBMI() >= mark.calcBMI() ? 'Mark' : 'John'}'s (${john.calcBMI() >= mark.calcBMI() ? mark.calcBMI() : john.calcBMI()})`)
