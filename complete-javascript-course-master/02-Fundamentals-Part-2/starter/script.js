@@ -178,32 +178,81 @@
 //   console.log('Wrong request!')
 
 // }
+// ==============================================================================================================
 
 
 // console.log(`${james.firstName} has ${james.friends.length}, and his best friend is called ${james.friends[1]}`)
 
-CODING Challenge
+// CODING Challenge
+//
+// const mark = {
+//   fullName: 'Mark Rober',
+//   mass: 78000000000,
+//   height: 1.69,
+//   calcBMI: function() {
+//   return this.mass / (this.height ** 2)
+//   }
+// }
+//
+// const john = {
+//   fullName: 'John Stamos',
+//   mass: 920000,
+//   height: 1.95,
+//   calcBMI: function() {
+//     return this.mass / (this.height ** 2)
+//   }
+// }
+//
+//
+// // console.log(john.calcBMI())
+//
+// console.log(`${john.calcBMI() >= mark.calcBMI() ? 'John' : 'Mark'}'s BMI (${john.calcBMI() >= mark.calcBMI() ? john.calcBMI() : mark.calcBMI()}) is
+// higher than ${john.calcBMI() >= mark.calcBMI() ? 'Mark' : 'John'}'s (${john.calcBMI() >= mark.calcBMI() ? mark.calcBMI() : john.calcBMI()})`)
+//
+// const years  = [1991, 2007, 2013, 2020];
+// const ages - []
+//
+// for (let i = 0; i < years.length; i++){
+//   ages.push(2037 - years[i])
+// }
+//
+// console.log(ages)
 
-const mark = {
-  fullName: 'Mark Rober',
-  mass: 78000000000,
-  height: 1.69,
-  calcBMI: function() {
-  return this.mass / (this.height ** 2)
-  }
+
+
+// ==============================================================================================================
+
+
+
+const bill = [22, 295,176,440,37,105,10,1100,86,52];
+tips = []
+totals = []
+
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
 
-const john = {
-  fullName: 'John Stamos',
-  mass: 920000,
-  height: 1.95,
-  calcBMI: function() {
-    return this.mass / (this.height ** 2)
-  }
+for (let i =0; i <= bill.length -1; i++) {
+  tips.push(calcTip(bill[i]))
 }
 
+for (let i =0; i <= bill.length -1; i++) {
+  totals.push(calcTip(bill[i]) + bill[i])
+}
 
-// console.log(john.calcBMI())
+console.log(tips)
+console.log(totals)
 
-console.log(`${john.calcBMI() >= mark.calcBMI() ? 'John' : 'Mark'}'s BMI (${john.calcBMI() >= mark.calcBMI() ? john.calcBMI() : mark.calcBMI()}) is
-higher than ${john.calcBMI() >= mark.calcBMI() ? 'Mark' : 'John'}'s (${john.calcBMI() >= mark.calcBMI() ? mark.calcBMI() : john.calcBMI()})`)
+
+const calcAverage = function (arr) {
+
+  array_length = arr.length;
+  let sum = 0;
+
+  for (let i = 0; i <= array_length-1; i++){
+    sum = sum + arr[i]
+  }
+
+  return sum / array_length
+}
+console.log(calcAverage(totals))
