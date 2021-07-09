@@ -1,0 +1,22 @@
+body {
+  background-color: yellow;
+  font-size: 10px;
+  padding: 0;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.paragraphs {
+  font-size: 40px;
+  color: red;
+}
+
+.your-name {
+  background: red;
+  border: 10px solid white;
+  margin: 3px;
+  padding: 100px;
+  box-sizing: border-box;
+}
