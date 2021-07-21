@@ -507,3 +507,40 @@ const game = {
     team2: 6.5,
   },
 };
+
+// QUESTION1 :
+const scorer = game.scored;
+console.log(scorer);
+
+for (let score in scorer) {
+  let newScorer = parseInt(score);
+  console.log(`Goal ${newScorer + 1}: ${scorer[score]}`);
+}
+// QUESTION2 :
+
+const odds = game.odds;
+const oddEntries = Object.entries(odds);
+let total = 0;
+let avg = 0;
+
+let startStr = '';
+
+for (const [key, value] of oddEntries) {
+  total += value;
+  avg = total / 3;
+}
+
+startStr += `The average of the odds is ${avg}`;
+console.log(startStr);
+// QUESTION3 :
+
+for (let [team, value] of oddEntries) {
+  //console.log(team, typeof team, typeof game.team1);
+  if (team === 'x') {
+    console.log(`Odd of draw: ${game.odds.x}`);
+  } else {
+    console.log(
+      `Odd of victory ${team === 'team1' ? game.team1 : game.team2}: ${value} `
+    );
+  }
+}
