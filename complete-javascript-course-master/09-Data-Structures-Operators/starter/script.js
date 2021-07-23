@@ -466,81 +466,278 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 
 GOOD LUCK 😀
 */
+//
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
+//
+// // QUESTION1 :
+// const scorer = game.scored;
+// console.log(scorer);
+//
+// for (let score in scorer) {
+//   let newScorer = parseInt(score);
+//   console.log(`Goal ${newScorer + 1}: ${scorer[score]}`);
+// }
+//
+// // ======================================== Answer Model ========================================
+//
+// // for (const [i, player] of game.scored.entries())
+// //   console.log(`Goal ${i + 1}: ${player}`);
+// // ==============================================================================================
+//
+// // QUESTION2 :
+//
+// const odds = game.odds;
+// const oddEntries = Object.entries(odds);
+// let total = 0;
+// let avg = 0;
+//
+// let startStr = '';
+//
+// for (const [key, value] of oddEntries) {
+//   total += value;
+//   avg = total / 3;
+// }
+//
+// startStr += `The average of the odds is ${avg}`;
+// console.log(startStr);
+//
+// // ======================================== Answer Model ========================================
+// // const odds = Object.values(game.odds);
+// // let average = 0;
+// // for (const odd of odds) average += odd;
+// // average /= odds.length;
+// // console.log(average);
+// // ==============================================================================================
+//
+// // QUESTION3 :
+//
+// for (let [team, value] of oddEntries) {
+//   //console.log(team, typeof team, typeof game.team1);
+//   if (team === 'x') {
+//     console.log(`Odd of draw: ${game.odds.x}`);
+//   } else {
+//     console.log(
+//       `Odd of victory ${team === 'team1' ? game.team1 : game.team2}: ${value} `
+//     );
+//   }
+// }
+//
+// // ======================================== Answer Model ========================================
+//
+// // for (const [team, odd] of Object.entries(game.odds)) {
+// //   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+// //   console.log(`Odd of ${teamStr} ${odd}`);
+// // }
+// // ==============================================================================================
+//
+// // Bonus :
+//
+// const scorers = {};
+// for (const player of game.scored) {
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// }
+//
+// console.log(scorers);
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// // ==============================================================================================
 
-// QUESTION1 :
-const scorer = game.scored;
-console.log(scorer);
+// SETS
 
-for (let score in scorer) {
-  let newScorer = parseInt(score);
-  console.log(`Goal ${newScorer + 1}: ${scorer[score]}`);
-}
-// QUESTION2 :
+// const ordersSet = new Set([
+//   'Pasta',
+//   'Pizza',
+//   'Pizza',
+//   'Risotto',
+//   'Pasta',
+//   'Pizza',
+// ]);
+//
+// console.log(ordersSet);
+// console.log(typeof ordersSet);
+//
+// for (const order of ordersSet) console.log(order);
+//
+// const staff = [
+//   'Waiter',
+//   'Chef',
+//   'Waiter',
+//   'Manager',
+//   'Chef',
+//   'Waiter',
+//   'Cleaner',
+// ];
+//
+// const staffUnique0 = [new Set(staff)];
+// console.log(staffUnique0);
+// const staffUnique1 = [...new Set(staff)]; // newly constructed array, unpack using spread operator
+// console.log(staffUnique1);
 
-const odds = game.odds;
-const oddEntries = Object.entries(odds);
-let total = 0;
-let avg = 0;
+// // ==============================================================================================
 
-let startStr = '';
+// Maps
+//
+// const rest = new Map(); // easiest is to create an empty loginEmail
+// rest.set('name', 'Classico Ristorante');
+// rest.set(1, 'Firenze, Italy');
+//
+// console.log(rest.set(2, 'Lisbon, Portugal'));
+//
+// rest
+//   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+//   .set('open', 11)
+//   .set('close', 23)
+//   .set(true, 'We are open:D')
+//   .set(false, 'We are closed');
+//
+// console.log(rest.get('name'));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
+//
+// const time = 21;
+// rest.get(
+//   console.log(
+//     time > rest.get('open') && time < rest.get('close')
+//       ? rest.get(true)
+//       : rest.get(false)
+//   )
+// );
+//
+// // Note: The key value pairs are strict to the data type
+//
+// console.log(rest.has('categories'));
+// rest.delete(2);
+// rest.set([1, 2], 'Test');
+// console.log(rest);
+// console.log(rest.size);
+//
+// console.log(rest.get([1, 2])); // this is undefined as the 2 arrrays are not the same arrays. They are note the same object in the HEAP
+// // to mitigae this, need to use const arr = [1,2]
 
-for (const [key, value] of oddEntries) {
-  total += value;
-  avg = total / 3;
-}
+// // ==============================================================================================
 
-startStr += `The average of the odds is ${avg}`;
-console.log(startStr);
-// QUESTION3 :
+// maps iterations
 
-for (let [team, value] of oddEntries) {
-  //console.log(team, typeof team, typeof game.team1);
-  if (team === 'x') {
-    console.log(`Odd of draw: ${game.odds.x}`);
+// const question = new Map([
+//   ['question', ' What is the best programming langauage in the world?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'JavaScript'],
+//   ['correct', 3],
+//   [true, 'Correct'],
+//   [false, 'Try Again'],
+// ]);
+//
+// console.log(question);
+//
+// //Convert object to maps
+// console.log(Object.entries(openingHours));
+//
+// //Quiz app
+//
+// console.log(question.get('question'));
+//
+// const hoursMap = new Map(Object.entries(openingHours));
+// for (const [key, value] of question) {
+//   if (typeof key === 'number') {
+//     console.log(`Answer ${key}: ${value}`);
+//   }
+// }
+//
+// const answer = 3;
+//
+// console.log(question.get(question.get('correct') === answer));
+//
+// //convert map into an arrays
+// console.log([...question]);
+// // console.log(question.entries());
+// console.log([...question.keys()]);
+// console.log([...question.values()]);
+
+// Coding Challenge #3
+
+/*
+Let's continue with our football betting app! This time, we have a map with a log of the events that happened during the game. The values are the events themselves, and the keys are the minutes in which each event happened (a football game has 90 minutes plus some extra time).
+
+1. Create an array 'events' of the different game events that happened (no duplicates)
+2. After the game has finished, is was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
+3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
+4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
+      [FIRST HALF] 17: ⚽️ GOAL
+
+GOOD LUCK 😀
+*/
+
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+//QUESTION 1
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+
+//QUESTION 2
+
+gameEvents.delete(64);
+console.log(gameEvents);
+
+//QUESTION 3
+const averageEvent = 90 / gameEvents.size;
+console.log(`An event happened, on average, every ${averageEvent} minutes`);
+
+//QUESTION 4
+for (const [time, events] of gameEvents) {
+  if (time <= 45) {
+    console.log(` [FIRST HALF] ${time}: ${events}`);
   } else {
-    console.log(
-      `Odd of victory ${team === 'team1' ? game.team1 : game.team2}: ${value} `
-    );
+    console.log(` [SECOND HALF] ${time}: ${events}`);
   }
 }
