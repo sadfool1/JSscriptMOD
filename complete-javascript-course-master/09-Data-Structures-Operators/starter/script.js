@@ -63,6 +63,102 @@ const restaurant = {
 
 // ============================================================================================================
 
+const airline = 'TAP Air Portugal';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+// fix capitalisation
+
+const passenger = 'jAmES';
+
+const passengerLower = passenger.toLowerCase();
+const passsengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+
+console.log(passsengerCorrect);
+
+// Check email input
+
+const email = 'hello@james.io';
+const loginEmail = '  Hello@jaMeS.io            \n'; // \n is enter character
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(email === normalizedEmail);
+
+// replace parts of strings
+
+const priceGB = '289,97£';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passenger come to boarding door 23. Boarding door 23!';
+console.log(announcement.replace('door', 'gate')); // only replaces the first element
+
+const announcementNew =
+  'All passenger come to boarding door 23. Boarding door 23!';
+console.log(announcementNew.replaceAll('door', 'gate'));
+
+console.log(announcement.replace(/door/g, 'gate')); // Regular expression, g means global
+
+//booleans
+const plane = 'A320neo';
+console.log(plane.includes('A320')); //  ==> Output: true
+console.log(plane.includes('Boeing')); //false
+console.log(plane.startsWith('Air')); //false as it does not start with Air
+// ============================================================================================================
+
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
+//
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+// console.log('B737'[0]);
+//
+// console.log(airline.length);
+// console.log('B737'.length);
+//
+// console.log(airline.indexOf('r'));
+// console.log(airline.lastIndexOf('r'));
+//
+// console.log(airline.indexOf('portugal'));
+//
+// console.log(airline.slice(4)); // 4 is the index number and it will extract onwards.
+//
+// console.log(airline.slice(4, 7)); // 4 is the index number and it will extract onwards and stops at index 7
+//
+// console.log(airline.slice(0, airline.indexOf(' '))); // TAP
+//
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // Portugal, getting the last word, starting w the last space (so we add + 1 to remove it)
+//
+// console.log(airline.slice(-2)); // start counting from the end
+//
+// console.log(airline.slice(-2)); // start counting from the end
+// console.log(airline.slice(1, -1)); // cuts off the last character. ==> AP Air Portuga
+//
+// const checkMiddleSeat = function (seat) {
+//   // B & E are the middle seats, want to check our seat has B or E.
+//
+//   const s = seat.slice(-1);
+//   console.log(
+//     `${
+//       s == 'B' || s == 'E' ? 'You got middle Seat' : 'You are not middle seat'
+//     }`
+//   );
+// };
+//
+// checkMiddleSeat('11B');
+// checkMiddleSeat('3E');
+// checkMiddleSeat('23C');
+//
+// console.log(new String('James'));
+// console.log(typeof new String('James'));
+// console.log(typeof new String('James').slice(1));
+
+// ============================================================================================================
+
 // const properties = Object.keys(openingHours);
 //
 // let openStr = ` We are open on ${properties.length} days:`;
@@ -706,38 +802,38 @@ Let's continue with our football betting app! This time, we have a map with a lo
 GOOD LUCK 😀
 */
 
-const gameEvents = new Map([
-  [17, '⚽️ GOAL'],
-  [36, '🔁 Substitution'],
-  [47, '⚽️ GOAL'],
-  [61, '🔁 Substitution'],
-  [64, '🔶 Yellow card'],
-  [69, '🔴 Red card'],
-  [70, '🔁 Substitution'],
-  [72, '🔁 Substitution'],
-  [76, '⚽️ GOAL'],
-  [80, '⚽️ GOAL'],
-  [92, '🔶 Yellow card'],
-]);
-
-//QUESTION 1
-const events = [...new Set(gameEvents.values())];
-console.log(events);
-
-//QUESTION 2
-
-gameEvents.delete(64);
-console.log(gameEvents);
-
-//QUESTION 3
-const averageEvent = 90 / gameEvents.size;
-console.log(`An event happened, on average, every ${averageEvent} minutes`);
-
-//QUESTION 4
-for (const [time, events] of gameEvents) {
-  if (time <= 45) {
-    console.log(` [FIRST HALF] ${time}: ${events}`);
-  } else {
-    console.log(` [SECOND HALF] ${time}: ${events}`);
-  }
-}
+// const gameEvents = new Map([
+//   [17, '⚽️ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽️ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽️ GOAL'],
+//   [80, '⚽️ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
+//
+// //QUESTION 1
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
+//
+// //QUESTION 2
+//
+// gameEvents.delete(64);
+// console.log(gameEvents);
+//
+// //QUESTION 3
+// const averageEvent = 90 / gameEvents.size;
+// console.log(`An event happened, on average, every ${averageEvent} minutes`);
+//
+// //QUESTION 4
+// for (const [time, events] of gameEvents) {
+//   if (time <= 45) {
+//     console.log(` [FIRST HALF] ${time}: ${events}`);
+//   } else {
+//     console.log(` [SECOND HALF] ${time}: ${events}`);
+//   }
+// }
