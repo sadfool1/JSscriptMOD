@@ -62,51 +62,124 @@ const restaurant = {
 };
 
 // ============================================================================================================
+// console.log('a+very+nice+string'.split('+')); //divided with +
+// console.log('James Elijah'.split(' ')); // split by space
+// //restructuring
+// const [firstName, lastName] = 'James Morillo'.split(' ');
+// console.log(firstName, lastName);
+//
+// const newName = [' Mr.', firstName, lastName.toUpperCase()].join(' ');
+// console.log(newName);
+//
+// const capitalizeName = function (name) {
+//   const names = name.split(' '); //split by space
+//   console.log(names);
+//   const namesUpper = [];
+//   for (const letter of names) {
+//     //namesUpper.push(letter[0].toUpperCase() + letter.slice(1));
+//     // same result with
+//     namesUpper.push(letter.replace(letter[0], letter[0].toUpperCase()));
+//   }
+//
+//   console.log(namesUpper.join(' '));
+// };
+//
+// capitalizeName('jessica ann smith davies');
+// capitalizeName('james elijah braganza MORIllo');
+//
+// //padding
+// const message = 'Go to gate 23!';
+// console.log(message.padStart(25, '+').padEnd(35, '+')); //adding an element to the start and end of string until have the length desired
+// console.log('james'.padStart(20, '+'));
+//
+// const maskCreditCard = function (number) {
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, '*');
+// };
+// console.log(maskCreditCard(63657836));
+//
+// console.log(maskCreditCard(2312312313123123));
+// console.log(maskCreditCard('2132321312312354'));
+//
+// // repeat
+// const message2 = 'Bad Weather... All departures delayed...';
+// console.log(message2.repeat(4));
+//
+// const planstInLine = function (n) {
+//   console.log(`There are ${n} planes in the line ${'✈️'.repeat(n)}`);
+// };
+//
+// planstInLine(4);
+// planstInLine(400);
 
-const airline = 'TAP Air Portugal';
+// ============================================================================================================
 
-console.log(airline.toLowerCase());
-console.log(airline.toUpperCase());
+// const airline = 'TAP Air Portugal';
+//
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
+//
+// // fix capitalisation
+//
+// const passenger = 'jAmES';
+//
+// const passengerLower = passenger.toLowerCase();
+// const passsengerCorrect =
+//   passengerLower[0].toUpperCase() + passengerLower.slice(1);
+//
+// console.log(passsengerCorrect);
+//
+// // Check email input
+//
+// const email = 'hello@james.io';
+// const loginEmail = '  Hello@jaMeS.io            \n'; // \n is enter character
+//
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(email === normalizedEmail);
+//
+// // replace parts of strings
+//
+// const priceGB = '289,97£';
+// const priceUS = priceGB.replace('£', '$').replace(',', '.');
+// console.log(priceUS);
+//
+// const announcement =
+//   'All passenger come to boarding door 23. Boarding door 23!';
+// console.log(announcement.replace('door', 'gate')); // only replaces the first element
+//
+// const announcementNew =
+//   'All passenger come to boarding door 23. Boarding door 23!';
+// console.log(announcementNew.replaceAll('door', 'gate'));
+//
+// console.log(announcement.replace(/door/g, 'gate')); // Regular expression, g means global
+//
+// //booleans
+// const plane = 'Airbus A320neo';
+// console.log(plane.includes('Airbus')); //  ==> Output: true
+// console.log(plane.includes('Boeing')); //false
+// console.log(plane.startsWith('Air')); //false as it does not start with Air
+//
+// if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
+//   console.log('part of the New Airbus family');
+// }
+//
+// //practice excercise
+//
+// const checkBaggage = function (items) {
+//   const baggage = items.toLowerCase();
+//
+//   if (baggage.includes('gun') || baggage.includes('knife')) {
+//     console.log('You are not allowed onboard');
+//   } else {
+//     console.log('welcome aboard');
+//   }
+// };
+//
+// checkBaggage('I have a laptop, some food and a pocket knife');
+// checkBaggage('Socks and camera');
+// checkBaggage('Got some snacks and a gun for protection');
 
-// fix capitalisation
-
-const passenger = 'jAmES';
-
-const passengerLower = passenger.toLowerCase();
-const passsengerCorrect =
-  passengerLower[0].toUpperCase() + passengerLower.slice(1);
-
-console.log(passsengerCorrect);
-
-// Check email input
-
-const email = 'hello@james.io';
-const loginEmail = '  Hello@jaMeS.io            \n'; // \n is enter character
-
-const normalizedEmail = loginEmail.toLowerCase().trim();
-console.log(email === normalizedEmail);
-
-// replace parts of strings
-
-const priceGB = '289,97£';
-const priceUS = priceGB.replace('£', '$').replace(',', '.');
-console.log(priceUS);
-
-const announcement =
-  'All passenger come to boarding door 23. Boarding door 23!';
-console.log(announcement.replace('door', 'gate')); // only replaces the first element
-
-const announcementNew =
-  'All passenger come to boarding door 23. Boarding door 23!';
-console.log(announcementNew.replaceAll('door', 'gate'));
-
-console.log(announcement.replace(/door/g, 'gate')); // Regular expression, g means global
-
-//booleans
-const plane = 'A320neo';
-console.log(plane.includes('A320')); //  ==> Output: true
-console.log(plane.includes('Boeing')); //false
-console.log(plane.startsWith('Air')); //false as it does not start with Air
 // ============================================================================================================
 
 // const airline = 'TAP Air Portugal';
