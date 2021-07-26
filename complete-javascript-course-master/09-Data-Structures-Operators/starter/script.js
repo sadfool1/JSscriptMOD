@@ -126,8 +126,8 @@ document.querySelector('button').addEventListener('click', function () {
 
   console.log(finalArray);
 
-  for (let i = 1; i < finalArray.length; i++) {
-    console.log(`${finalArray[i]}         ${'✅'.repeat(i)}`);
+  for (let i = 0; i < finalArray.length; i++) {
+    console.log(`${finalArray[i].padEnd(20, '.')}${'✅'.repeat(i + 1)}`);
   }
 });
 
