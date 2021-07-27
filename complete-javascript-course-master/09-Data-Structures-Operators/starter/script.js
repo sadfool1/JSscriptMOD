@@ -6,6 +6,11 @@ const flights =
 
 // Data needed for first part of the section
 
+// 🔴 Delayed Departure from FAO to TXL (11h25)
+//              Arrival from BRU to FAO (11h45)
+//   🔴 Delayed Arrival from HEL to FAO (12h05)
+//            Departure from FAO to LIS (12h30)
+
 const openingHours = {
   thu: {
     open: 12,
