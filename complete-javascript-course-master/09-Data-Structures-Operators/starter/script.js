@@ -1,70 +1,82 @@
 'use strict';
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
-// Data needed for first part of the section
-
-// 🔴 Delayed Departure from FAO to TXL (11h25)
-//              Arrival from BRU to FAO (11h45)
-//   🔴 Delayed Arrival from HEL to FAO (12h05)
-//            Departure from FAO to LIS (12h30)
-
-const openingHours = {
-  thu: {
-    open: 12,
-    close: 22,
-  },
-  fri: {
-    open: 11,
-    close: 23,
-  },
-  sat: {
-    open: 0, // Open 24 hours
-    close: 24,
-  },
-};
-
-const weekdays = ['mon', 'tues', 'wed', 'thu', 'fri'];
-
-const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-  // ES6 enhanced object literals
-  openingHours,
-  // order: function (starterIndex, mainIndex) {
-  //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  // }, ==> can now write it as below:
-
-  order(starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },
-
-  orderDelivery: function ({
-    starterIndex = 1,
-    mainIndex = 0,
-    time = '20:00',
-    address,
-  }) {
-    console.log(
-      `order recieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
-    );
-  },
-
-  orderPasta: function (ing1, ing2, ing3) {
-    console.log(`Here is your delisious pasta with ${ing1}, ${ing2}, ${ing3} `);
-  },
-
-  orderPizza: function (mainIngredient, ...otherIngredient) {
-    console.log(mainIngredient);
-    console.log(otherIngredient);
-  },
-};
+// // Data needed for a later exercise
+// const flights =
+//   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+//
+// const splitFlight = flights.split('+');
+//
+// for (const flight of splitFlight) {
+//   const [type, from, to, time] = flight.split(';');
+//   const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll(
+//     '_',
+//     ' '
+//   )} ${from.slice(0, 3).toUpperCase()} to ${to
+//     .slice(0, 3)
+//     .toUpperCase()} ${time.replace(':', 'h')}`.padStart(35, ' ');
+//   console.log(output);
+// }
+// // Data needed for first part of the section
+//
+// // 🔴 Delayed Departure from FAO to TXL (11h25)
+// //              Arrival from BRU to FAO (11h45)
+// //   🔴 Delayed Arrival from HEL to FAO (12h05)
+// //            Departure from FAO to LIS (12h30)
+//
+// const openingHours = {
+//   thu: {
+//     open: 12,
+//     close: 22,
+//   },
+//   fri: {
+//     open: 11,
+//     close: 23,
+//   },
+//   sat: {
+//     open: 0, // Open 24 hours
+//     close: 24,
+//   },
+// };
+//
+// const weekdays = ['mon', 'tues', 'wed', 'thu', 'fri'];
+//
+// const restaurant = {
+//   name: 'Classico Italiano',
+//   location: 'Via Angelo Tavanti 23, Firenze, Italy',
+//   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+//   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+//   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+//
+//   // ES6 enhanced object literals
+//   openingHours,
+//   // order: function (starterIndex, mainIndex) {
+//   //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+//   // }, ==> can now write it as below:
+//
+//   order(starterIndex, mainIndex) {
+//     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+//   },
+//
+//   orderDelivery: function ({
+//     starterIndex = 1,
+//     mainIndex = 0,
+//     time = '20:00',
+//     address,
+//   }) {
+//     console.log(
+//       `order recieved! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+//     );
+//   },
+//
+//   orderPasta: function (ing1, ing2, ing3) {
+//     console.log(`Here is your delisious pasta with ${ing1}, ${ing2}, ${ing3} `);
+//   },
+//
+//   orderPizza: function (mainIngredient, ...otherIngredient) {
+//     console.log(mainIngredient);
+//     console.log(otherIngredient);
+//   },
+// };
 
 // ============================================================================================================
 // Coding Challenge
@@ -97,44 +109,44 @@ Afterwards, test with your own test data!
 GOOD LUCK 😀
 */
 
-document.body.append(document.createElement('textarea'));
-document.body.append(document.createElement('button'));
-
-document.querySelector('button').addEventListener('click', function () {
-  let formatArr = [];
-  let finalArray = [];
-  const text = document.querySelector('textarea').value;
-
-  const splitText = text.toLowerCase().split('\n');
-
-  for (const el of splitText) {
-    formatArr.push(el.trim());
-  }
-
-  const camelCase = function (underscore_case) {
-    const index = underscore_case.indexOf('_');
-    let trimmed = underscore_case.replaceAll('_', '');
-
-    let camelName =
-      trimmed.slice(0, index) +
-      trimmed[index].toUpperCase() +
-      trimmed.slice(index + 1);
-
-    return camelName;
-  };
-
-  for (const elements of formatArr) {
-    let counter = 1;
-    finalArray.push(camelCase(elements));
-    counter += 1;
-  }
-
-  console.log(finalArray);
-
-  for (let i = 0; i < finalArray.length; i++) {
-    console.log(`${finalArray[i].padEnd(20, '.')}${'✅'.repeat(i + 1)}`);
-  }
-});
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
+//
+// document.querySelector('button').addEventListener('click', function () {
+//   let formatArr = [];
+//   let finalArray = [];
+//   const text = document.querySelector('textarea').value;
+//
+//   const splitText = text.toLowerCase().split('\n');
+//
+//   for (const el of splitText) {
+//     formatArr.push(el.trim());
+//   }
+//
+//   const camelCase = function (underscore_case) {
+//     const index = underscore_case.indexOf('_');
+//     let trimmed = underscore_case.replaceAll('_', '');
+//
+//     let camelName =
+//       trimmed.slice(0, index) +
+//       trimmed[index].toUpperCase() +
+//       trimmed.slice(index + 1);
+//
+//     return camelName;
+//   };
+//
+//   for (const elements of formatArr) {
+//     let counter = 1;
+//     finalArray.push(camelCase(elements));
+//     counter += 1;
+//   }
+//
+//   console.log(finalArray);
+//
+//   for (let i = 0; i < finalArray.length; i++) {
+//     console.log(`${finalArray[i].padEnd(20, '.')}${'✅'.repeat(i + 1)}`);
+//   }
+// });
 
 // ============================================================================================================
 // console.log('a+very+nice+string'.split('+')); //divided with +
@@ -985,3 +997,4 @@ GOOD LUCK 😀
 //     console.log(` [SECOND HALF] ${time}: ${events}`);
 //   }
 // }
+
