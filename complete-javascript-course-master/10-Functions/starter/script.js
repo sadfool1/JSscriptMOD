@@ -2,15 +2,49 @@
 
 // ==============================================================================================================
 
-const runOnce = function () {
-  console.log('This will never run again');
+// a closure is not a feature that we explicitly use. We do not create closures manualy like arrays or functions.
+// We just need to identity what is a closure
+
+const secureBooking = function () {
+  let passengerCount = 0;
+  let james = 'james';
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+    console.log(`${james.repeat(passengerCount)}`);
+  };
 };
 
-runOnce();
+const booker = secureBooking();
 
-(function () {
-  console.log('This will never run again');
-})(); //this is an expression, can Immediately call it
+booker();
+booker();
+booker(); //booker is no longer in the callStack
+
+console.dir(booker);
+
+// ==============================================================================================================
+
+// const runOnce = function () {
+//   console.log('This will never run again');
+// };
+//
+// runOnce();
+//
+// (function () {
+//   console.log('This will never run again');
+//   const isPrivate = 23; // when we try to access this in the console, we cannot log it anymore. this is because of the scope chain
+// })(); //this is an expression, can Immediately call it. aka function value and Immediatelycalled. Thisis called Immediately occured function
+//
+// (() => console.log('This will ALSO never run again'))();
+//
+// {
+//   const isPrivate = 23;
+//   var notPrivate = 23;
+// }
+//
+// console.log(notPrivate);
+// console.log(isPrivate);
 
 // ==============================================================================================================
 
