@@ -1,6 +1,19 @@
 'use strict';
 
 // ==============================================================================================================
+
+const runOnce = function () {
+  console.log('This will never run again');
+};
+
+runOnce();
+
+(function () {
+  console.log('This will never run again');
+})(); //this is an expression, can Immediately call it
+
+// ==============================================================================================================
+
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -35,58 +48,63 @@ BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 GOOD LUCK 😀
 */
 
-const poll = {
-  question: 'What is your favourite programming language?',
-  options: ['0: JavaScript', '1: Python', '2: Rust', '3:C++'],
-  // This generates [0, 0, 0, 0]. More in the next section!
-  answers: new Array(4).fill(0),
-  registerNewAnswer() {
-    // get the answer
-    const userValue = Number(
-      prompt(
-        'What is your favourite programming language? \n0: JavaScript \n1: Python \n2: Rust \n3: C++ \n(Write option number)'
-      )
-    );
+// const poll = {
+//   question: 'What is your favourite programming language?',
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3:C++'],
+//   // This generates [0, 0, 0, 0]. More in the next section!
+//   answers: new Array(4).fill(0),
+//   registerNewAnswer() {
+//     // get the answer
+//     const userValue = Number(
+//       prompt(
+//         'What is your favourite programming language? \n0: JavaScript \n1: Python \n2: Rust \n3: C++ \n(Write option number)'
+//       )
+//     );
+//
+//     if (typeof userValue === 'number') {
+//       if (userValue >= 0 && userValue <= this.answers.length) {
+//         if (userValue === 0) {
+//           this.answers[0]++;
+//         } else if (userValue === 1) {
+//           this.answers[1]++;
+//         } else if (userValue === 2) {
+//           this.answers[2]++;
+//         } else if (userValue === 3) {
+//           this.answers[3]++;
+//         }
+//       } else {
+//         console.log('Enter a number 1-3');
+//       }
+//     } else {
+//       console.log('Enter a NUMBER 1-3');
+//     }
+//
+//     const userResult = prompt(
+//       'Select how to display result (String or Array)'
+//     ).toLowerCase();
+//
+//     this.displayResults(userResult);
+//   },
+//
+//   displayResults(userResult = 'array') {
+//     if (userResult === 'string') {
+//       console.log(
+//         `Poll results are ${this.answers[0]}, ${this.answers[1]}, ${this.answers[2]}, ${this.answers[3]}.`
+//       );
+//     } else {
+//       console.log(this.answers);
+//     }
+//   },
+// };
+//
+// document
+//   .querySelector('.poll')
+//   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+//
+// poll.displayResults.call({ answers: [5, 2, 3, 3, 3, 1] }, 'string');
 
-    if (typeof userValue === 'number') {
-      if (userValue >= 0 && userValue <= 3) {
-        if (userValue === 0) {
-          this.answers[0]++;
-        } else if (userValue === 1) {
-          this.answers[1]++;
-        } else if (userValue === 2) {
-          this.answers[2]++;
-        } else if (userValue === 3) {
-          this.answers[3]++;
-        }
-      } else {
-        console.log('Enter a number 1-3');
-      }
-    } else {
-      console.log('Enter a NUMBER 1-3');
-    }
+// ==============================================================================================================
 
-    const userResult = prompt(
-      'Select how to display result (String or Array)'
-    ).toLowerCase();
-
-    this.displayResults(userResult);
-  },
-
-  displayResults(userResult = 'array') {
-    if (userResult === 'string') {
-      console.log(
-        `Poll results are ${this.answers[0]}, ${this.answers[1]}, ${this.answers[2]}, ${this.answers[3]}.`
-      );
-    } else {
-      console.log(this.answers);
-    }
-  },
-};
-
-document
-  .querySelector('.poll')
-  .addEventListener('click', poll.registerNewAnswer.bind(poll));
 // // we use bind to create a new function
 //
 // document
