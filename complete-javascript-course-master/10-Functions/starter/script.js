@@ -1,10 +1,58 @@
 'use strict';
 
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  const bodyButton = document.querySelector('body');
+
+  bodyButton.addEventListener('click', function () {
+    header.style.color = 'blue';
+  });
+})();
+
+/*
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f(); //output: 46
+// re-assigning f function
+h();
+f(); //output: 1554
+
+// Example 2
+
+const boardPassebgers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding ${n} passengers`);
+    console.log(`There are 3 groups each with ${perGroup} passengers`);
+  }, wait * 1000); // 2 params, 1st is a function that will be executed, 2nd is the time in milliseconds
+};
+
+boardPassebgers(180, 3); */
+
+//closure value using console.dir(f) we see that f becomes 777
 // ==============================================================================================================
 
 // a closure is not a feature that we explicitly use. We do not create closures manualy like arrays or functions.
 // We just need to identity what is a closure
-
+/*
 const secureBooking = function () {
   let passengerCount = 0;
   let james = 'james';
@@ -22,7 +70,7 @@ booker();
 booker(); //booker is no longer in the callStack
 
 console.dir(booker);
-
+*/
 // ==============================================================================================================
 
 // const runOnce = function () {
