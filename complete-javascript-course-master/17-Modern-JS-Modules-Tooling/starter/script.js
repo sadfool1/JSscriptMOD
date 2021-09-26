@@ -25,3 +25,7 @@ console.log(state == stateDeepClone);
 console.log('Welcome!');
 console.log('Welcome! Home');
 console.log('Welcome! 123123');
+
+const newFeature = function () {
+  console.log(`Welcome to the application!`);
+};
