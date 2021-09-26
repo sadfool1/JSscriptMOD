@@ -10,3 +10,27 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
+
+navigator.geolocation.getCurrentPosition(
+  function (position) {
+    const { latitude } = position.coords;
+    const { longitude } = position.coords;
+
+    console.log(`https://www.google.pt/maps/@${latitude},${longitude}`);
+
+    const map = L.map('map').setView([51.505, -0.09], 13); // looks for div with id name map
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    L.marker([latitude, longitude])
+      .addTo(map)
+      .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+      .openPopup();
+  },
+  function () {
+    alert('Coujld not get ur pos');
+  }
+);

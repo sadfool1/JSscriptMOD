@@ -335,10 +335,10 @@ document
     message.parentElement.removeChild(message);
   });
 
-  
+
 ///////////////////////////////////////
 // Styles, Attributes and Classes
-  
+
 // Styles
 message.style.backgroundColor = '#37383d';
 message.style.width = '120%';

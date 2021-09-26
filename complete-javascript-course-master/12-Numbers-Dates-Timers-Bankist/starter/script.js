@@ -248,6 +248,20 @@ btnSort.addEventListener('click', function (e) {
   sorted = !sorted;
 });
 
+const future = new Date(2037, 10, 10, 14, 23, 5);
+
+const calcDaysPassed = (date1, date2) =>
+  Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+
+const daysPassed = calcDaysPassed(new Date(2031, 3, 3), future);
+console.log(daysPassed);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+
+// rounding integers
+
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min) + 1) + min;
+
+console.log(randomInt(1, 6));

@@ -33,8 +33,14 @@ console.log(ageJonas, ageSarah);
 console.log(ageJonas *2,ageJonas/10 );
 */
 
-const firstName = 'James'
-const lastName = 'Morillo'
+const firstName = 'Jonas';
 
-console.log(firstName + '' + lastName)
-*/
+const job = 'teacher';
+
+const birthYear = 1991;
+
+const year = 2037;
+
+const jonas = "I’m " + firstName + ' , a ' + (year – birthYear) + ' years old'  + job + ' ! ';
+
+console.log(jonas)
